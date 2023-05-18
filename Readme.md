@@ -7,7 +7,7 @@ This project exposes reactive api which consumes JSON data from S3 bucket and th
 
 Use ``mvn clean install`` to build the application
 
-run the application with `` java -jar <jar name> ``
+run the application with `` java -jar <jar name> `` from the target folder.  example ``java -jar EventManagement-0.0.1-SNAPSHOT.jar``
 
 By default application runs on 8080 port number and below are the URI exposed to consume Artist with event data
 
@@ -15,6 +15,8 @@ By default application runs on 8080 port number and below are the URI exposed to
 /api/artists/{id}
 
 ```
+
+This returns the whole artist attributes along with list of events that artist is participating
 
 #Example Output
 
