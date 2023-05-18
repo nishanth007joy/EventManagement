@@ -16,7 +16,7 @@ By default application runs on 8080 port number and below are the URI exposed to
 
 ```
 
-This returns the whole artist attributes along with list of events that artist is participating
+This returns the whole artist attributes along with list of events that artist is participating.
 
 #Example Output
 
@@ -57,5 +57,9 @@ This returns the whole artist attributes along with list of events that artist i
 ```
 
 ### Design assumptions made
+
+Currently there is no different model between fetching details from S3 and publishing the rest api. In future we may split the model into one for the backend remote S3 model and another one for the reactive api domain and a mapstruct mapper to map between models.
+
+
 
 
