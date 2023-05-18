@@ -1,15 +1,59 @@
-# Getting Started
+# Event Management API
 
 ### Reference Documentation
-For further reference, please consider the following sections:
+This project exposes reactive api which consumes JSON data from S3 bucket and the publised in a non blocking way.
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.0.6/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.0.6/maven-plugin/reference/html/#build-image)
-* [Spring Reactive Web](https://docs.spring.io/spring-boot/docs/3.0.6/reference/htmlsingle/#web.reactive)
+### How to run
 
-### Guides
-The following guides illustrate how to use some features concretely:
+Use ``mvn clean install`` to build the application
 
-* [Building a Reactive RESTful Web Service](https://spring.io/guides/gs/reactive-rest-service/)
+run the application with `` java -jar <jar name> ``
+
+By default application runs on 8080 port number and below are the URI exposed to consume Artist with event data
+
+```
+/api/artists/{id}
+
+```
+
+#Example Output
+
+```
+
+{
+    "name": "Colosseum",
+    "id": 22,
+    "imgSrc": "//some-base-url/colosseum.jpg",
+    "url": "/colosseum-tickets/artist/22",
+    "rank": 2,
+    "events": [{
+            "title": "Blues In Space",
+            "id": 2,
+            "dateStatus": "singleDate",
+            "timeZone": "Europe/London",
+            "startDate": "2020-10-18T00:00:00",
+            "hiddenFromSearch": false
+        }, {
+            "title": "Huge Live",
+            "id": 13,
+            "dateStatus": "multiDate",
+            "hiddenFromSearch": false
+        }, {
+            "title": "Harisson Live",
+            "id": 11,
+            "dateStatus": "singleDate",
+            "hiddenFromSearch": false
+        }, {
+            "title": "A festival Live",
+            "id": 7,
+            "dateStatus": "singleDate",
+            "hiddenFromSearch": false
+        }
+    ]
+}
+
+```
+
+### Design assumptions made
+
 
