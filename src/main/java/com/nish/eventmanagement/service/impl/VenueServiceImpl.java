@@ -1,7 +1,5 @@
 package com.nish.eventmanagement.service.impl;
 
-import java.util.Map;
-
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -16,8 +14,6 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class VenueServiceImpl implements VenueService {
 
-	private Map<String, Venue> venueMap;
-
 	private WebClient webClient;
 
 	public VenueServiceImpl(WebClient webClient) {
@@ -25,7 +21,7 @@ public class VenueServiceImpl implements VenueService {
 	}
 
 	@Override
-	public Mono<Venue> getArtistByID(long id) {
+	public Mono<Venue> getVenueByID(long id) {
 		log.info("Searching Venue by ID {}", id);
 
 		return webClient.get().uri("/venues.json").accept(MediaType.APPLICATION_JSON).retrieve().bodyToFlux(Venue.class)

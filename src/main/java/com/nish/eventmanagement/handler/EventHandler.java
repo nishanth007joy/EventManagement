@@ -1,7 +1,6 @@
 package com.nish.eventmanagement.handler;
 
 import org.springframework.http.MediaType;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -14,7 +13,6 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @Slf4j
-@Validated
 public class EventHandler {
 
 	private EventFacade eventFacade;

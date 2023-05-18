@@ -6,6 +6,6 @@ import reactor.core.publisher.Mono;
 
 public interface VenueService {
 
-	Mono<Venue> getArtistByID(long id);
+	Mono<Venue> getVenueByID(long id);
 
 }
