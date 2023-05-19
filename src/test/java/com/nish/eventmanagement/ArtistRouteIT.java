@@ -39,20 +39,12 @@ class ArtistRouteIT {
 
 	@Test
 	void test() {
-		 wireMockServer.stubFor(
-			      WireMock.get(WireMock.urlEqualTo("/events.json"))
-			        .willReturn(aResponse()
-			          .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
-			          .withBodyFile("s3/events-200.json"))
-			    );
-		 
-		 wireMockServer.stubFor(
-			      WireMock.get(WireMock.urlEqualTo("/artists.json"))
-			        .willReturn(aResponse()
-			          .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
-			          .withBodyFile("s3/artist-200.json"))
-			    );
-		 
+		wireMockServer.stubFor(WireMock.get(WireMock.urlEqualTo("/events.json")).willReturn(aResponse()
+				.withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE).withBodyFile("s3/events-200.json")));
+
+		wireMockServer.stubFor(WireMock.get(WireMock.urlEqualTo("/artists.json")).willReturn(aResponse()
+				.withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE).withBodyFile("s3/artist-200.json")));
+
 		webTestClient.get().uri("/api/artists/22").accept(MediaType.APPLICATION_JSON).exchange().expectStatus().isOk();
 	}
 
