@@ -14,9 +14,20 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 import com.nish.eventmanagement.handler.EventHandler;
 
+/**
+ * Route configuration
+ * 
+ * @author Nishanth Mathew Joy
+ *
+ */
 @Configuration
 public class EventManagementRouteConfiguration {
-
+	/**
+	 * Configured routes for the revent management api
+	 * 
+	 * @param eventHandler
+	 * @return
+	 */
 	@Bean
 	RouterFunction<ServerResponse> routes(EventHandler eventHandler) {
 		return nest(path("/api/artists"),

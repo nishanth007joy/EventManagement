@@ -15,7 +15,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.nish.eventmanagement.exception.WebClientStatusCodeHandler;
-
+/**
+ * Configuration for S3 Wen client
+ * @author Nishanth Mathew Joy
+ *
+ */
 @Configuration
 public class S3WebclientConfiguration {
 

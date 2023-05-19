@@ -1,7 +1,7 @@
 package com.nish.eventmanagement.handler;
 
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
@@ -11,7 +11,7 @@ import com.nish.eventmanagement.facade.EventFacade;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
-@RestController
+@Component
 @Slf4j
 public class EventHandler {
 
@@ -21,6 +21,13 @@ public class EventHandler {
 		this.eventFacade = eventFacade;
 	}
 
+	/**
+	 * This handled the get artist by ID which respond with artist and events
+	 * associated.
+	 * 
+	 * @param serverRequest
+	 * @return
+	 */
 	public Mono<ServerResponse> getArtistById(ServerRequest serverRequest) {
 		String id = serverRequest.pathVariable("id");
 		log.info("Entering getArtistById for ID {}", id);
