@@ -33,7 +33,7 @@ public class EventFacade {
 		log.info("Getting events information for ID {}", artistId);
 		Flux<Event> eventsFlux = eventService.getAllEventsForAnArtist(artistId);
 		log.info("Mapping artist and events for ID {}", artistId);
-		
+
 		Mono<Set<Event>> eventList = eventsFlux.map(event -> {
 			event.setArtists(null);
 			event.setVenue(null);
@@ -44,10 +44,6 @@ public class EventFacade {
 			artist.setEvents(events);
 			return artist;
 		});
-		/*return artistMono.flatMap(artist -> eventList.map(el -> {
-			artist.setEvents(el);
-			return artist;
-		}));*/
 
 	}
 
