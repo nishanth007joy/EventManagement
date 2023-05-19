@@ -58,9 +58,10 @@ This returns artist attributes along with list of events associated the them.
 
 # Http status codes
 
-200 Ok is returned when there is a response 
-500 internal server error when there is any exception including calling s3 api.
-401/403 is not implemented as the api is not secure at the moment
+1. 200 Ok is returned when there is a response 
+2. 500 internal server error when there is any exception including calling s3 api.
+3. 401/403 is not implemented as the api is not secure at the moment
+4. 404 Resource not fount when it cannot find a resource.
 
 
 
