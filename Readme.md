@@ -56,9 +56,20 @@ This returns artist attributes along with list of events associated the them.
 
 ```
 
+# Http status codes
+
+200 Ok is returned when there is a response 
+500 internal server error when there is any exception including calling s3 api.
+401/403 is not implemented as the api is not secure at the moment
+
+
+
+
 ### Design assumptions made
 
 Currently there is no different model between fetching details from S3 and publishing the rest api. In future we may split the model into one for the backend remote S3 model and another one for the reactive api domain and a mapstruct mapper to map between models.
+
+
 
 
 
