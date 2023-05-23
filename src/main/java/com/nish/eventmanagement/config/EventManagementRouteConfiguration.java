@@ -1,9 +1,6 @@
 package com.nish.eventmanagement.config;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
-import static org.springframework.web.reactive.function.server.RequestPredicates.path;
-import static org.springframework.web.reactive.function.server.RouterFunctions.nest;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 import org.springframework.context.annotation.Bean;
@@ -30,8 +27,9 @@ public class EventManagementRouteConfiguration {
 	 */
 	@Bean
 	RouterFunction<ServerResponse> routes(EventHandler eventHandler) {
-		return nest(path("/api/artists"),
-				nest(accept(MediaType.APPLICATION_JSON), route(GET("/{id}"), eventHandler::getArtistById)));
+		return route().path("/api/artists", builder -> builder
+		        .GET("/{id}", accept(MediaType.APPLICATION_JSON), eventHandler::getArtistById)).build();
+		
 
 	}
 
